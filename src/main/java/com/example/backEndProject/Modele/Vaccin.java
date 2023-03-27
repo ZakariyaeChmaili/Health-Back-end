@@ -34,13 +34,13 @@ public class Vaccin {
     private String type;
     @Column(length=200)
     private String observation;
-    
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
-    private Patient patient;
    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+     
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
     
 }

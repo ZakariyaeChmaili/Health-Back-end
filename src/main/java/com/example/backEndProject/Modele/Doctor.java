@@ -9,6 +9,10 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Getter;
@@ -25,12 +29,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Doctor extends Personne {
+//   @Id
+//   @GeneratedValue(strategy = GenerationType.IDENTITY)
+//   private Long id;
+    
     @Column(length=55)
     private String specialite;
     
-     @OneToMany(mappedBy = "Report", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "doctor")
     private List<Report> repports = new ArrayList<>();
      
-        @OneToMany(mappedBy = "Vaccin", cascade = CascadeType.ALL, orphanRemoval = true)
+      @OneToMany(mappedBy = "doctor")
     private List<Vaccin> vaccins = new ArrayList<>();
 }

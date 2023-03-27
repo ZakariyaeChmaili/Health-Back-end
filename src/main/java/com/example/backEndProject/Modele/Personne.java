@@ -4,12 +4,17 @@
  */
 package com.example.backEndProject.Modele;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,10 +25,13 @@ import org.springframework.beans.factory.annotation.Value;
  * @author hp
  */
 @Entity
+@Data
 @Table(name="Personne")
 @Getter
 @Setter
 @NoArgsConstructor
+@Inheritance(strategy=InheritanceType.JOINED)
+
 public class Personne {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -35,7 +43,7 @@ public class Personne {
     @Column(length=70)
     private String prenom;
     @Column(length=25)
-    private String datenaiss;
+    private Date datenaiss;
     @Column(length=55)
     private String ville;
     @Column(length=55)
@@ -52,6 +60,4 @@ public class Personne {
     @Value("patient")
     private String role;
 
-
-    
 }

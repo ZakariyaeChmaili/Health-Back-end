@@ -4,6 +4,7 @@
  */
 package com.example.backEndProject.Modele;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
@@ -34,17 +36,20 @@ public class Report {
    @Column(length=55)
    private String titre;
    @Column(length=55)
-   private String datecrea;
+   private Date datecrea;
+  
+    
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor; 
    
-   @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+   
+   @ManyToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
-    private Doctor doctor;
    
-   @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+   @OneToOne
+    @JoinColumn(name = "traitement_id")
     private Traitement traitement;
 }
