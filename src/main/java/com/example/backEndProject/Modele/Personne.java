@@ -12,7 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
@@ -24,18 +26,14 @@ import org.springframework.beans.factory.annotation.Value;
  *
  * @author hp
  */
-@Entity
-@Data
-@Table(name="Personne")
-@Getter
-@Setter
-@NoArgsConstructor
-@Inheritance(strategy=InheritanceType.JOINED)
 
+@Data
+@NoArgsConstructor
+@Entity
 public class Personne {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long id_perso;
     @Column(length=70)
     private String cne;
     @Column(length=70)
@@ -59,5 +57,7 @@ public class Personne {
     @Column(length=25)
     @Value("patient")
     private String role;
+
+
 
 }

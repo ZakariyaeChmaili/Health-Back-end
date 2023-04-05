@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,11 +22,10 @@ import lombok.Setter;
  *
  * @author hp
  */
-@Entity
-@Table(name="Vaccin")
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
+@Entity
 public class Vaccin {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -36,11 +36,6 @@ public class Vaccin {
     private String observation;
    
      
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+
     
 }

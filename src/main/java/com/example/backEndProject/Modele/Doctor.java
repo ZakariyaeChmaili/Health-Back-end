@@ -14,31 +14,36 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import lombok.Getter;
+import javax.persistence.OneToOne;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  *
  * @author hp
  */
-@Entity
-@Table(name = "Doctor")
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
-public class Doctor extends Personne {
-//   @Id
-//   @GeneratedValue(strategy = GenerationType.IDENTITY)
-//   private Long id;
+@Entity
+public class Doctor  {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private Long id_doc;
     
     @Column(length=55)
     private String specialite;
     
-    @OneToMany(mappedBy = "doctor")
-    private List<Report> repports = new ArrayList<>();
-     
-      @OneToMany(mappedBy = "doctor")
-    private List<Vaccin> vaccins = new ArrayList<>();
+   @OneToMany 
+   @JoinColumn(name="id_doc")
+   List<Report> listeRapport=new ArrayList();
+   
+   @OneToMany 
+   @JoinColumn(name="id_doc")
+   List<Vaccin> listeVaccin=new ArrayList(); 
+   
+   
+   @OneToOne
+@JoinColumn(name="id_perso")
+private Doctor doctor;
 }

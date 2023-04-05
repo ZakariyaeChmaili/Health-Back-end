@@ -4,7 +4,9 @@
  */
 package com.example.backEndProject.Modele;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,32 +27,21 @@ import lombok.Setter;
  *
  * @author hp
  */
-@Entity
-@Table(name = "Report")
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
+@Entity
 public class Report {
    @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY) 
-   private Long id;
+   private Long id_Repo;
    @Column(length=55)
    private String titre;
    @Column(length=55)
    private Date datecrea;
   
-    
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor; 
    
-   
-   @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-   
-   
-   @OneToOne
-    @JoinColumn(name = "traitement_id")
-    private Traitement traitement;
+   @OneToMany 
+   @JoinColumn(name="id_Repo")
+   List<Traitement> listeTraitement=new ArrayList();
 }

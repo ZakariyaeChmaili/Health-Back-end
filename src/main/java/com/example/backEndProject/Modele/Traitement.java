@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +21,9 @@ import lombok.Setter;
  *
  * @author hp
  */
-@Entity
-@Table(name = "Traitement")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@Entity
 public class Traitement {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -34,6 +33,5 @@ public class Traitement {
    @Column(length=200)
    private String observation;
    
-    @OneToOne(mappedBy = "traitement")
-    private Report report;
+   
 }
