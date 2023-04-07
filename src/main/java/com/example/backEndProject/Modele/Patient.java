@@ -30,11 +30,8 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @Entity
-public class Patient{
+public class Patient extends Personne{
     
-     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Long id_patient;
     
     @Column(length=55)
     private String nompere;
@@ -50,7 +47,4 @@ public class Patient{
    @JoinColumn(name="id_patient")
    List<Vaccin> listeVaccin=new ArrayList();
    
-   @OneToOne
-@JoinColumn(name="id_perso")
-private Patient patient;
 }

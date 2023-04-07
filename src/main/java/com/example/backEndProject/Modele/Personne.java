@@ -30,6 +30,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Data
 @NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Personne {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

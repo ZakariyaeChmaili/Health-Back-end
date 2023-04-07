@@ -26,11 +26,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Doctor  {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id_doc;
-    
+public class Doctor extends Personne  {
     @Column(length=55)
     private String specialite;
     
@@ -43,7 +39,4 @@ public class Doctor  {
    List<Vaccin> listeVaccin=new ArrayList(); 
    
    
-   @OneToOne
-@JoinColumn(name="id_perso")
-private Doctor doctor;
 }

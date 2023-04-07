@@ -35,9 +35,11 @@ public class PersonController {
     public List<Personne> read(){
     return serv.lire();
     }
-    
+    //finnaaa hyaaaaaaaa @RequestBody 
     @PutMapping("/update/{id}")
-    public Personne update(@PathVariable Long id,Personne perso){
+    public Personne update(@PathVariable Long id,@RequestBody  Personne perso){
+      System.out.println("this is inseide the update method");
+      System.out.println(perso);
     return serv.modifier(id, perso);
     }
 }
