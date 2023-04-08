@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,5 +38,9 @@ public class PatientController {
      @GetMapping("patient/{id}")
     public Patient getpatient(@PathVariable Long id){
     return serv.getById(id);
+    }
+     @PutMapping("/update/{id}")
+    public Patient update(@PathVariable Long id,@RequestBody  Patient pas){
+    return serv.modifier(id, pas);
     }
 }

@@ -32,8 +32,14 @@ public class PatientService implements ServiceInterface<Patient> {
     }
 
     @Override
-    public Patient modifier(Long id, Patient objet) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Patient modifier(Long id, Patient pas) {
+        return patientrepo.findById(id)
+             .map(p->{
+    p.setNommere(pas.getNommere());
+    p.setNompere(pas.getNompere());
+    p.setPoids(pas.getPoids());
+     return patientrepo.save(p);
+     }).orElseThrow(()->new RuntimeException("doctor non trouver"));
     
     }
 

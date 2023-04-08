@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author hp
  */
 @RestController
-@RequestMapping("/signin")
+@RequestMapping("/signup")
 @AllArgsConstructor
 
 public class PersonController {
