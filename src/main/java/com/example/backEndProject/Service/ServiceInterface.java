@@ -14,4 +14,5 @@ public interface ServiceInterface<S> {
      S creer(S object);
      List<S>lire();
      S modifier(Long id,S objet);
+     S getById(Long id); 
 }

@@ -4,11 +4,9 @@
  */
 package com.example.backEndProject.Service;
 
-import com.example.backEndProject.Modele.Patient;
-import com.example.backEndProject.Modele.Report;
-import com.example.backEndProject.Repository.Patientrepository;
+import com.example.backEndProject.Modele.Vaccin;
+import com.example.backEndProject.Repository.Vaccinrepository;
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,31 +16,26 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-public class PatientService implements ServiceInterface<Patient> {
-    private final Patientrepository patientrepo;
+public class VaccinService implements ServiceInterface<Vaccin>{
+ private Vaccinrepository vaccinrepo;
 
     @Override
-    public Patient creer(Patient patient) {
-     return patientrepo.save(patient);
+    public Vaccin creer(Vaccin vac) {
+      return vaccinrepo.save(vac);
     }
 
     @Override
-    public List<Patient> lire() {
-     return patientrepo.findAll();
-    }
+    public List<Vaccin> lire() {
+       return vaccinrepo.findAll();}
 
     @Override
-    public Patient modifier(Long id, Patient objet) {
+    public Vaccin modifier(Long id, Vaccin objet) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    
     }
 
     @Override
-    public Patient getById(Long id) {
-     return patientrepo.findById(id).orElse(null);
-
+    public Vaccin getById(Long id) {
+       return vaccinrepo.findById(id).orElse(null);
     }
- 
-   
     
 }

@@ -39,8 +39,15 @@ public class Report {
    private String titre;
    @Column(length=55)
    private Date datecrea;
-  
-   
+  @Column(length=7)
+  private String heartBeat;
+  @Column(length=7)
+  private String bloodSugar;
+  @Column(length=7)
+  private String bloodPressure;
+   @Column(length=7)
+  private String temperature;
+
    @OneToMany 
    @JoinColumn(name="id_Repo")
    List<Traitement> listeTraitement=new ArrayList();

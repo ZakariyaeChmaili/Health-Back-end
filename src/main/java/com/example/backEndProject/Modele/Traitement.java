@@ -32,6 +32,10 @@ public class Traitement {
    private String nomtraimenet;
    @Column(length=200)
    private String observation;
+   @Column(length=40)
+   private String period;
+   @Column(length=40)
+   private String dose;
    
    
 }

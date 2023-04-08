@@ -4,11 +4,10 @@
  */
 package com.example.backEndProject.Controller;
 
-import com.example.backEndProject.Modele.Doctor;
-import com.example.backEndProject.Service.DoctorService;
-import java.util.List;
+import com.example.backEndProject.Modele.Session;
+import com.example.backEndProject.Service.SessionService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,22 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @author hp
  */
 @RestController
-@RequestMapping("/doctors")
+@RequestMapping("/session")
 @AllArgsConstructor
-public class DoctorController {
-    private final DoctorService docserv;   
-    
-     @PostMapping("/create")
-    public Doctor create(@RequestBody Doctor doc){
-    return docserv.creer(doc);
-    }
- @GetMapping("doctorlist")
-    public List<Doctor> read(){
-    return docserv.lire();
+public class SessionController {
+     private final SessionService serv;   
+ @PostMapping("/create")
+    public Session create(@RequestBody Session se){
+    return serv.creer(se);
     }
     
-    @GetMapping("doctor/{id}")
-    public Doctor getpatient(@PathVariable Long id){
-    return docserv.getById(id);
-    }
+    @DeleteMapping("delete/{id}")
+    public String delete(@PathVariable Long id){
+    return serv.delete(id);
+    } 
 }

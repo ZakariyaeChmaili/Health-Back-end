@@ -42,4 +42,10 @@ public class PersonController {
       System.out.println(perso);
     return serv.modifier(id, perso);
     }
+    
+     @GetMapping("person/{id}")
+    public Personne getPerson(@PathVariable Long id){
+    return serv.getById(id);
+    }
+    
 }

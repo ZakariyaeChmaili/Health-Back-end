@@ -4,11 +4,9 @@
  */
 package com.example.backEndProject.Service;
 
-import com.example.backEndProject.Modele.Patient;
 import com.example.backEndProject.Modele.Report;
-import com.example.backEndProject.Repository.Patientrepository;
+import com.example.backEndProject.Repository.Reportrepository;
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,31 +16,29 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-public class PatientService implements ServiceInterface<Patient> {
-    private final Patientrepository patientrepo;
+public class ReportService implements ServiceInterface<Report> {
+ private Reportrepository report;
 
     @Override
-    public Patient creer(Patient patient) {
-     return patientrepo.save(patient);
+    public Report creer(Report repo) {
+    return report.save(repo);
+
     }
 
     @Override
-    public List<Patient> lire() {
-     return patientrepo.findAll();
+    public List<Report> lire() {
+    return report.findAll();
+
     }
 
     @Override
-    public Patient modifier(Long id, Patient objet) {
+    public Report modifier(Long id, Report objet) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    
     }
 
     @Override
-    public Patient getById(Long id) {
-     return patientrepo.findById(id).orElse(null);
-
+    public Report getById(Long id) {
+       return report.findById(id).orElse(null);
     }
  
-   
-    
 }

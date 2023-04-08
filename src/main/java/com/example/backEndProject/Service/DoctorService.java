@@ -32,5 +32,11 @@ public class DoctorService implements ServiceInterface<Doctor> {
     public Doctor modifier(Long id, Doctor doc) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public Doctor getById(Long id) {
+    return docrepo.findById(id).orElse(null);
+
+    }
     
 }

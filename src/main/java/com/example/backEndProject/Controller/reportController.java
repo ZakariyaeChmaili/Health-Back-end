@@ -4,8 +4,8 @@
  */
 package com.example.backEndProject.Controller;
 
-import com.example.backEndProject.Modele.Doctor;
-import com.example.backEndProject.Service.DoctorService;
+import com.example.backEndProject.Modele.Report;
+import com.example.backEndProject.Service.ReportService;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,22 +20,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @author hp
  */
 @RestController
-@RequestMapping("/doctors")
+@RequestMapping("/reports")
 @AllArgsConstructor
-public class DoctorController {
-    private final DoctorService docserv;   
-    
-     @PostMapping("/create")
-    public Doctor create(@RequestBody Doctor doc){
-    return docserv.creer(doc);
-    }
- @GetMapping("doctorlist")
-    public List<Doctor> read(){
-    return docserv.lire();
+public class reportController {
+     private final ReportService serv;   
+ @PostMapping("/create")
+    public Report create(@RequestBody Report repo){
+    return serv.creer(repo);
     }
     
-    @GetMapping("doctor/{id}")
-    public Doctor getpatient(@PathVariable Long id){
-    return docserv.getById(id);
+    @GetMapping("reportlist")
+    public List<Report> read(){
+    return serv.lire();
+    }
+    
+    @GetMapping("report/{id}")
+    public Report getReport(@PathVariable Long id){
+    return serv.getById(id);
     }
 }

@@ -46,5 +46,11 @@ public class PersonService implements ServiceInterface<Personne>{
      }).orElseThrow(()->new RuntimeException("Produit non trouver"));
     }
 
+    @Override
+    public Personne getById(Long id) {
+   return perso.findById(id).orElse(null);
+
+    }
+
    
 }
