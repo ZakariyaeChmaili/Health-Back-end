@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface Personnerepository extends JpaRepository<Personne, Long> {
-    
+        Personne findPersonneByCni(String cni);
 }
 
 
