@@ -4,7 +4,6 @@
  */
 package com.example.backEndProject.Modele;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -13,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -26,25 +26,24 @@ import lombok.Setter;
  *
  * @author hp
  */
-
 @Data
 @NoArgsConstructor
 @Entity
 public class Patient extends Personne{
-    
-    
-    @Column(length=55)
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//    @Id
+//    @ManyToOne
+//    private Personne personne;
+    @Column(length = 55)
     private String nompere;
-    @Column(length=55)
-    private String nommere;   
+    @Column(length = 55)
+    private String nommere;
     private float poids;
-    
-   @OneToMany 
-   @JoinColumn(name="id_patient")
-   List<Report> listeRapport=new ArrayList();
-   
-   @OneToMany 
-   @JoinColumn(name="id_patient")
-   List<Vaccin> listeVaccin=new ArrayList();
-   
+    @OneToMany(mappedBy = "patient")
+    List<Report> listeRapport = new ArrayList();
+    @OneToMany(mappedBy = "patient")
+    List<Vaccin> listeVaccin = new ArrayList();
 }

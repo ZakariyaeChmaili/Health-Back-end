@@ -8,17 +8,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,7 +31,7 @@ public class Personne implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_perso;
+    private Long id;
     @Column(length = 70)
     private String cni;
     @Column(length = 70)
@@ -52,7 +43,9 @@ public class Personne implements UserDetails {
     @Column(length = 55)
     private String ville;
     @Column(length = 55)
-    private String nasionality;
+    private String nationality;
+    @Column(length = 55)
+    private String tel;
     @Column(length = 7)
     private String sexe;
     @Column(length = 25)
@@ -65,13 +58,29 @@ public class Personne implements UserDetails {
     @Value("patient")
     private String role;
 
-    @Override
-    public Collection<? extends GrantedAuthority > getAuthorities() {
-     
-        Collection<GrantedAuthority> roles = new ArrayList();
-        roles.add(new SimpleGrantedAuthority("patient"));
-        return roles;
 
+
+    @Override
+    public String toString() {
+        return "Personne{" +
+                "id=" + id +
+                ", cni='" + cni + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "doctor_person", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id"))
+//    private List<Doctor> doctors = new ArrayList<>();
+
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "patient_person", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
+//    private List<Patient> patients = new ArrayList<>();
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("patient"));
     }
 
     @Override

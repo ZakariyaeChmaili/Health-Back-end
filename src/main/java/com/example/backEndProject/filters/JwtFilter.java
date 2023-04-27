@@ -7,11 +7,16 @@ package com.example.backEndProject.filters;
 import com.example.backEndProject.Modele.Personne;
 import com.example.backEndProject.Service.JwtService;
 import com.example.backEndProject.Service.PersonService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,7 +28,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  *
  * @author ADMIN
  */
-@Component
+//@Component
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -32,19 +37,58 @@ public class JwtFilter extends OncePerRequestFilter {
     PersonService personService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,
+            HttpServletResponse response,
+            FilterChain filterChain) throws ServletException, IOException {
 
-        String token = request.getHeader("token");//null
-        if (token != null) {
-            String cni = this.jwtService.extractClaimFromToken(token, "cni");
-            Personne p = this.personService.loadUserByUsername(cni);
-            System.out.println(token);
-            System.out.println(p);
-            Authentication user = new UsernamePasswordAuthenticationToken(cni, null, p.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(user);
+        
+        
+        String path = request.getRequestURI();
+        String method = request.getMethod();
+        String token = "";
+        String cni;
+        
+        
+        if (path.equals("/authentication/login") && method.equals("POST")) {
+            filterChain.doFilter(request, response);
+            return;
         }
 
+        // token = request.getHeader("token");
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("token")) {
+                    token = cookie.getValue();
+                }
+                System.out.println(cookie.getName());
+
+            }
+        }
+        System.out.println("the token :" + token);
+
+        if (token != null && !token.equals("")) {
+            try {
+                cni = jwtService.extractClaimFromToken(token, "cni");
+
+            } catch (Exception e) {
+                response.setStatus(401);
+                response.getWriter()
+                        .write(new ObjectMapper().writeValueAsString(Map.of("error", "the token is invalid")));
+                return;
+            }
+            System.out.println(cni);
+            System.out.println("start printing person");
+            Personne p = this.personService.loadUserByUsername(cni);
+//            Personne p = this.personService.findPersonneByCni(cni).orElse(null);
+            System.out.println(p);
+
+            if (p != null) {
+                SecurityContextHolder.getContext()
+                        .setAuthentication(new UsernamePasswordAuthenticationToken(p, null, p.getAuthorities()));
+            }
+
+        }
         filterChain.doFilter(request, response);
     }
-
 }

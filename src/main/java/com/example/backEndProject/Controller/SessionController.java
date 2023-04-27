@@ -8,6 +8,7 @@ import com.example.backEndProject.Modele.Session;
 import com.example.backEndProject.Service.SessionService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,4 +33,17 @@ public class SessionController {
     public String delete(@PathVariable Long id){
     return serv.delete(id);
     } 
+    
+    
+    
+    @GetMapping("get/{id}")
+    public Session get(@PathVariable Long id){
+        return serv.getByPatientId(id);
+    }
+    
+    
+    @GetMapping("getCode/{code}")
+    public Session getCode(@PathVariable String code){
+        return serv.getByCode(code);
+    }
 }

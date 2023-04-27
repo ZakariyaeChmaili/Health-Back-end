@@ -12,5 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author hp
  */
 public interface Sessionrepository extends JpaRepository<Session, Long>{
+    Session findSessionByIdpatient(Long idPatient);
     
+    Session findSessionByCode(String code);
 }

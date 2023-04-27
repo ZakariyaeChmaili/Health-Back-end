@@ -40,5 +40,10 @@ public class ReportService implements ServiceInterface<Report> {
     public Report getById(Long id) {
        return report.findById(id).orElse(null);
     }
- 
+
+    public List<Report> getPatientReports(Long id){
+//    return report.findByPatient(id);
+//       System.out.println(report.findByPatientId(id));
+       return report.findByPatientId(id);
+    }
 }

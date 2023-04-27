@@ -25,22 +25,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/patient")
 @AllArgsConstructor
 public class PatientController {
-    private final PatientService serv;   
-    
-     @PostMapping("/create")
-    public Patient create(@RequestBody Patient patient){
-    return serv.creer(patient);
+
+    private final PatientService serv;
+
+    @PostMapping("/create")
+    public Patient create(@RequestBody Patient patient) {
+        System.out.println(patient);
+        return serv.creer(patient);
     }
- @GetMapping("patientlist")
-    public List<Patient> read(){
-    return serv.lire();
+
+    @GetMapping("patientlist")
+    public List<Patient> read() {
+        return serv.lire();
     }
-     @GetMapping("patient/{id}")
-    public Patient getpatient(@PathVariable Long id){
-    return serv.getById(id);
+
+    @GetMapping("patient/{id}")
+    public Patient getpatient(@PathVariable Long id) {
+        return serv.getById(id);
     }
-     @PutMapping("/update/{id}")
-    public Patient update(@PathVariable Long id,@RequestBody  Patient pas){
-    return serv.modifier(id, pas);
+
+    @PutMapping("/update/{id}")
+    public Patient update(@PathVariable Long id, @RequestBody Patient pas) {
+        return serv.modifier(id, pas);
     }
 }

@@ -19,5 +19,5 @@ public class Session {
      private Long id; 
      private String code;
      @Column(length=55)   
-     private String id_pateint;
+     private Long idpatient;
 }

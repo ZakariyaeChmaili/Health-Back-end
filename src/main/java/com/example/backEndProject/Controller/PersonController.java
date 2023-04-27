@@ -7,7 +7,10 @@ package com.example.backEndProject.Controller;
 import com.example.backEndProject.Modele.Personne;
 import com.example.backEndProject.Service.PersonService;
 import java.util.List;
+
+import com.example.backEndProject.dto.PersonneDTO;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author hp
  */
 @RestController
-@RequestMapping("/signup")
+@RequestMapping("/authentication")
 @AllArgsConstructor
 
 public class PersonController {
@@ -44,8 +47,11 @@ public class PersonController {
     }
     
      @GetMapping("person/{id}")
-    public Personne getPerson(@PathVariable Long id){
-    return serv.getById(id);
+    public ResponseEntity getPerson(@PathVariable Long id){
+
+         PersonneDTO p = new PersonneDTO(this.serv.getById(id));
+         return ResponseEntity.ok(p);
+//     return serv.getById(id);
     }
     
 }

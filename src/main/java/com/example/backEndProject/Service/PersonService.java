@@ -7,23 +7,29 @@ package com.example.backEndProject.Service;
 import com.example.backEndProject.Modele.Personne;
 import com.example.backEndProject.Repository.Personnerepository;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 /**
  *
  * @author hp
  */
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 public class PersonService implements ServiceInterface<Personne>,UserDetailsService{
-    
-//    @Autowired
+
  private final Personnerepository perso;
+
+    public PersonService(Personnerepository perso) {
+        this.perso = perso;
+    }
+
     @Override
     public Personne creer(Personne per) {
       return perso.save(per);
@@ -43,7 +49,7 @@ public class PersonService implements ServiceInterface<Personne>,UserDetailsServ
      p.setCni(per.getCni());
      p.setDatenaiss(per.getDatenaiss());
      p.setVille(per.getVille());
-     p.setNasionality(per.getNasionality());
+     p.setNationality(per.getNationality());
      p.setSexe(per.getSexe());
      p.setSutuaFamil(per.getSutuaFamil());
      p.setAddresse(per.getAddresse());
@@ -54,7 +60,9 @@ public class PersonService implements ServiceInterface<Personne>,UserDetailsServ
 
     @Override
     public Personne getById(Long id) {
-   return perso.findById(id).orElse(null);
+        System.out.println(id);
+        System.out.println(perso.findById(id).orElse(null));
+        return perso.findById(id).orElse(null);
 
     }
 
@@ -62,9 +70,14 @@ public class PersonService implements ServiceInterface<Personne>,UserDetailsServ
     public Personne loadUserByUsername(String cni) throws UsernameNotFoundException {
         Personne p= this.perso.findPersonneByCni(cni);
         System.out.println(cni);
+        System.out.println("start printing person from service");
         System.out.println(p);
         return this.perso.findPersonneByCni(cni);
     }
 
-   
+    public Optional<Personne> findPersonneByCni(String cni){
+        return perso.findPersonneByCni2(cni);
+    }
+
+
 }

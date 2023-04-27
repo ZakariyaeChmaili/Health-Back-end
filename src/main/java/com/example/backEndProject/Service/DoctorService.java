@@ -9,6 +9,7 @@ import com.example.backEndProject.Repository.Doctorrepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
+@Transactional
 public class DoctorService implements ServiceInterface<Doctor> {
     private Doctorrepository docrepo;
     @Override

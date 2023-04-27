@@ -42,7 +42,19 @@ public class SessionService implements ServiceInterface<Session>{
 
     @Override
     public Session getById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
+
     }
+    
+      public Session getByPatientId(Long id) {
+        return repo.findSessionByIdpatient(id);
+
+    }
+      
+      public Session getByCode(String code){
+          return repo.findSessionByCode(code);
+      }
+    
+    
     
 }

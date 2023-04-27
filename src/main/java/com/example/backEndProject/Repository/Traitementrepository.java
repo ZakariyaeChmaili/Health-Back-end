@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author hp
  */
+
 public interface Traitementrepository extends JpaRepository<Traitement, Long>{
     
 }

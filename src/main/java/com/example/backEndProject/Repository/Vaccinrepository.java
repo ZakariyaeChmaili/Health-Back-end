@@ -7,10 +7,14 @@ package com.example.backEndProject.Repository;
 import com.example.backEndProject.Modele.Vaccin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.transaction.Transactional;
+
 /**
  *
  * @author hp
  */
+@Transactional
+
 public interface Vaccinrepository extends JpaRepository<Vaccin, Long>{
     
 }

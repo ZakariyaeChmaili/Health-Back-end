@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author hp
  */
-// @Repository
+
 public interface Doctorrepository extends JpaRepository<Doctor, Long>{
     
 }

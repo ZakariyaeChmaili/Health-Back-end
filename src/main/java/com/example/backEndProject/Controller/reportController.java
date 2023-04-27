@@ -31,11 +31,22 @@ public class reportController {
     
     @GetMapping("reportlist")
     public List<Report> read(){
+       System.out.println("start of printing the list");
+//       System.out.println(serv.lire());
+       System.out.println("end of printing the list");
     return serv.lire();
     }
+    
+   
     
     @GetMapping("report/{id}")
     public Report getReport(@PathVariable Long id){
     return serv.getById(id);
+    }
+
+
+    @GetMapping("patientReports/{id}")
+    public List<Report> getPatientReports(@PathVariable Long id){
+    return serv.getPatientReports(id);
     }
 }

@@ -39,7 +39,7 @@ public class PatientService implements ServiceInterface<Patient> {
     p.setNompere(pas.getNompere());
     p.setPoids(pas.getPoids());
      return patientrepo.save(p);
-     }).orElseThrow(()->new RuntimeException("doctor non trouver"));
+     }).orElseThrow(()->new RuntimeException("patient non trouver"));
     
     }
 

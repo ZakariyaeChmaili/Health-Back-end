@@ -26,6 +26,7 @@ public class JwtService {
                 .claim("cni", cni)
                 .claim("role", "partient")
                 .claim("toto", "chaymae")
+                
                 .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(this.secretKey)), SignatureAlgorithm.HS256)
                 //                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60*2))
 
@@ -38,7 +39,6 @@ public class JwtService {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-        System.out.println(claims);
         return claims.get(claim, String.class);
     }
 

@@ -34,6 +34,10 @@ public class Vaccin {
     private String type;
     @Column(length=200)
     private String observation;
+    @ManyToOne
+    private Patient patient;
+    @ManyToOne
+    private Doctor doctor;
    
      
 
