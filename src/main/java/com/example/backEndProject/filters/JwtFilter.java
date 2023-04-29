@@ -28,7 +28,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  *
  * @author ADMIN
  */
-//@Component
+@Component
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired

@@ -17,26 +17,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
  * @author hp
  */
 @Data
 @NoArgsConstructor
 @Entity
-public class Doctor extends Personne  {
+public class Doctor extends Personne {
 
 
     @Column(length = 55)
     private String specialite;
 
-    @OneToMany(mappedBy = "doctor")
-    List<Report> listeRapport = new ArrayList<>();
+    //    @OneToMany(mappedBy = "doctor")
+//    @OneToMany
+//    @JoinColumn(name = "id_doctor")
+//    List<Report> listeRapport = new ArrayList<>();
 
-    @OneToMany(mappedBy = "doctor")
-    List<Vaccin> listeVaccin = new ArrayList<>();
+    //    @OneToMany(mappedBy = "doctor")
+//    @OneToMany
+//    @JoinColumn(name = "id_doctor")
+//    List<Vaccin> listeVaccin = new ArrayList<>();
+
 
 }

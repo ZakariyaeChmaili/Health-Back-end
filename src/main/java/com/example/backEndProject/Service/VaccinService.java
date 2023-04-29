@@ -4,6 +4,7 @@
  */
 package com.example.backEndProject.Service;
 
+import com.example.backEndProject.Modele.Patient;
 import com.example.backEndProject.Modele.Vaccin;
 import com.example.backEndProject.Repository.Vaccinrepository;
 import java.util.List;
@@ -21,7 +22,8 @@ public class VaccinService implements ServiceInterface<Vaccin>{
 
     @Override
     public Vaccin creer(Vaccin vac) {
-      return vaccinrepo.save(vac);
+       System.out.println(vac);
+       return vaccinrepo.save(vac);
     }
 
     @Override
@@ -36,6 +38,16 @@ public class VaccinService implements ServiceInterface<Vaccin>{
     @Override
     public Vaccin getById(Long id) {
        return vaccinrepo.findById(id).orElse(null);
+    }
+
+    public List<Vaccin> getPatientVaccins(Long id){
+       Patient p = new Patient();
+       p.setId(id);
+    return vaccinrepo.findByPatient(p);
+    }
+
+    public List<Vaccin> searchVaccin(String kword,long id){
+       return vaccinrepo.searchPatientVaccin(kword,id);
     }
     
 }

@@ -1,0 +1,404 @@
+{
+  "diagnostic": [
+    {
+      "id": 1,
+      "HeartBeat": "78",
+      "BloodSugar": "3.2",
+      "BloodPressure": "121",
+      "Temperature": "36.7",
+      "timestamp": "2020-03-28T13:45:30.000Z"
+    },
+    {
+      "id": 2,
+      "HeartBeat": "72",
+      "BloodSugar": "2.8",
+      "BloodPressure": "117",
+      "Temperature": "36.5",
+      "timestamp": "2021-03-27T10:15:20.000Z"
+    },
+    {
+      "id": 3,
+      "HeartBeat": "85",
+      "BloodSugar": "3.9",
+      "BloodPressure": "123",
+      "Temperature": "37.1",
+      "timestamp": "2018-03-26T09:30:45.000Z"
+    },
+    {
+      "id": 4,
+      "HeartBeat": "67",
+      "BloodSugar": "4.1",
+      "BloodPressure": "129",
+      "Temperature": "36.9",
+      "timestamp": "2019-03-25T18:20:10.000Z"
+    },
+    {
+      "id": 5,
+      "HeartBeat": "80",
+      "BloodSugar": "2.5",
+      "BloodPressure": "117",
+      "Temperature": "36.5",
+      "timestamp": "2020-03-24T16:35:15.000Z"
+    },
+    {
+      "id": 6,
+      "HeartBeat": "92",
+      "BloodSugar": "3.8",
+      "BloodPressure": "128",
+      "Temperature": "37.2",
+      "timestamp": "2022-03-23T12:40:30.000Z"
+    },
+    {
+      "id": 7,
+      "HeartBeat": "77",
+      "BloodSugar": "3.1",
+      "BloodPressure": "125",
+      "Temperature": "36.8",
+      "timestamp": "2021-03-22T08:50:40.000Z"
+    },
+    {
+      "id": 8,
+      "HeartBeat": "70",
+      "BloodSugar": "2.7",
+      "BloodPressure": "118",
+      "Temperature": "36.6",
+      "timestamp": "2023-03-21T11:15:25.000Z"
+    },
+    {
+      "id": 9,
+      "HeartBeat": "84",
+      "BloodSugar": "3.5",
+      "BloodPressure": "126",
+      "Temperature": "37.0",
+      "timestamp": "2019-03-20T14:30:55.000Z"
+    },
+    {
+      "id": 10,
+      "HeartBeat": "63",
+      "BloodSugar": "2.2",
+      "BloodPressure": "114",
+      "Temperature": "36.3",
+      "timestamp": "2018-03-19T09:20:20.000Z"
+    },
+    {
+      "id": 11,
+      "HeartBeat": "86",
+      "BloodSugar": "3.6",
+      "BloodPressure": "128",
+      "Temperature": "36.5",
+      "timestamp": "2019-03-21T10:30:55.000Z"
+    },
+    {
+      "id": 12,
+      "HeartBeat": "70",
+      "BloodSugar": "2.0",
+      "BloodPressure": "110",
+      "Temperature": "37.2",
+      "timestamp": "2019-03-20T15:40:20.000Z"
+    },
+    {
+      "id": 13,
+      "HeartBeat": "89",
+      "BloodSugar": "3.8",
+      "BloodPressure": "129",
+      "Temperature": "36.6",
+      "timestamp": "2019-03-22T11:50:55.000Z"
+    },
+    {
+      "id": 14,
+      "HeartBeat": "68",
+      "BloodSugar": "2.3",
+      "BloodPressure": "115",
+      "Temperature": "37.1",
+      "timestamp": "2019-03-23T13:00:20.000Z"
+    },
+    {
+      "id": 15,
+      "HeartBeat": "87",
+      "BloodSugar": "3.7",
+      "BloodPressure": "127",
+      "Temperature": "36.4",
+      "timestamp": "2019-03-24T14:10:55.000Z"
+    },
+    {
+      "id": 16,
+      "HeartBeat": "75",
+      "BloodSugar": "2.9",
+      "BloodPressure": "120",
+      "Temperature": "36.9",
+      "timestamp": "2019-03-25T15:20:20.000Z"
+    },
+    {
+      "id": 17,
+      "HeartBeat": "90",
+      "BloodSugar": "3.9",
+      "BloodPressure": "130",
+      "Temperature": "37.0",
+      "timestamp": "2019-03-26T16:30:55.000Z"
+    },
+    {
+      "id": 18,
+      "HeartBeat": "65",
+      "BloodSugar": "2.1",
+      "BloodPressure": "112",
+      "Temperature": "36.8",
+      "timestamp": "2019-03-27T17:40:20.000Z"
+    },
+    {
+      "id": 19,
+      "HeartBeat": "82",
+      "BloodSugar": "3.4",
+      "BloodPressure": "124",
+      "Temperature": "36.7",
+      "timestamp": "2019-03-28T18:50:55.000Z"
+    },
+    {
+      "id": 20,
+      "HeartBeat": "78",
+      "BloodSugar": "3.2",
+      "BloodPressure": "121",
+      "Temperature": "36.6",
+      "timestamp": "2019-03-29T19:00:20.000Z"
+    },
+    {
+      "id": 21,
+      "HeartBeat": "72",
+      "BloodSugar": "2.8",
+      "BloodPressure": "117",
+      "Temperature": "36.5",
+      "timestamp": "2019-03-30T20:10:55.000Z"
+    },
+    {
+      "id": 22,
+      "HeartBeat": "85",
+      "BloodSugar": "3.9",
+      "BloodPressure": "123",
+      "Temperature": "36.4",
+      "timestamp": "2019-03-31T21:20:20.000Z"
+    },
+    {
+      "id": 23,
+      "HeartBeat": "67",
+      "BloodSugar": "4.1",
+      "BloodPressure": "129",
+      "Temperature": "36.3",
+      "timestamp": "2019-04-01T22:30:55.000Z"
+    },
+    {
+      "id": 24,
+      "HeartBeat": "80",
+      "BloodSugar": "2.5",
+      "BloodPressure": "117",
+      "Temperature": "36.2",
+      "timestamp": "2019-04-02T23:40:20.000Z"
+    },
+    {
+      "id": 25,
+      "HeartBeat": "92",
+      "BloodSugar": "3.8",
+      "BloodPressure": "128",
+      "Temperature": "36.1",
+      "timestamp": "2019-04-03T00:50:55.000Z"
+    },
+    {
+      "id": 26,
+      "HeartBeat": "77",
+      "BloodSugar": "3.1",
+      "BloodPressure": "125",
+      "Temperature": "36.0",
+      "timestamp": "2019-04-04T01:00:20.000Z"
+    },
+    {
+      "id": 27,
+      "HeartBeat": "70",
+      "BloodSugar": "2.7",
+      "BloodPressure": "118",
+      "Temperature": "35.9",
+      "timestamp": "2019-04-05T02:10:55.000Z"
+    },
+    {
+      "id": 28,
+      "HeartBeat": "84",
+      "BloodSugar": "3.5",
+      "BloodPressure": "126",
+      "Temperature": "35.8",
+      "timestamp": "2019-04-06T03:20:20.000Z"
+    },
+    {
+      "id": 29,
+      "HeartBeat": "63",
+      "BloodSugar": "2.2",
+      "BloodPressure": "114",
+      "Temperature": "35.7",
+      "timestamp": "2019-04-07T04:30:55.000Z"
+    },
+    {
+      "id": 30,
+      "HeartBeat": "86",
+      "BloodSugar": "3.6",
+      "BloodPressure": "128",
+      "Temperature": "35.6",
+      "timestamp": "2019-04-08T05:40:20.000Z"
+    },
+    {
+      "id": 31,
+      "HeartBeat": "70",
+      "BloodSugar": "2.0",
+      "BloodPressure": "110",
+      "Temperature": "35.5",
+      "timestamp": "2019-04-09T06:50:55.000Z"
+    },
+    {
+      "id": 32,
+      "HeartBeat": "89",
+      "BloodSugar": "3.8",
+      "BloodPressure": "129",
+      "Temperature": "35.4",
+      "timestamp": "2019-04-10T07:00:20.000Z"
+    },
+    {
+      "id": 33,
+      "HeartBeat": "68",
+      "BloodSugar": "2.3",
+      "BloodPressure": "115",
+      "Temperature": "35.3",
+      "timestamp": "2019-04-11T08:10:55.000Z"
+    },
+    {
+      "id": 34,
+      "HeartBeat": "87",
+      "BloodSugar": "3.7",
+      "BloodPressure": "127",
+      "Temperature": "35.2",
+      "timestamp": "2019-04-12T09:20:20.000Z"
+    },
+    {
+      "id": 35,
+      "HeartBeat": "75",
+      "BloodSugar": "2.9",
+      "BloodPressure": "120",
+      "Temperature": "35.1",
+      "timestamp": "2019-04-13T10:30:55.000Z"
+    },
+    {
+      "id": 36,
+      "HeartBeat": "90",
+      "BloodSugar": "3.9",
+      "BloodPressure": "130",
+      "Temperature": "35.0",
+      "timestamp": "2019-04-14T11:40:20.000Z"
+    },
+    {
+      "id": 37,
+      "HeartBeat": "65",
+      "BloodSugar": "2.1",
+      "BloodPressure": "112",
+      "Temperature": "34.9",
+      "timestamp": "2019-04-15T12:50:55.000Z"
+    },
+    {
+      "id": 38,
+      "HeartBeat": "82",
+      "BloodSugar": "3.4",
+      "BloodPressure": "124",
+      "Temperature": "34.8",
+      "timestamp": "2019-04-16T13:00:20.000Z"
+    },
+    {
+      "id": 39,
+      "HeartBeat": "78",
+      "BloodSugar": "3.2",
+      "BloodPressure": "121",
+      "Temperature": "34.7",
+      "timestamp": "2019-04-17T14:10:55.000Z"
+    },
+    {
+      "id": 40,
+      "HeartBeat": "72",
+      "BloodSugar": "2.8",
+      "BloodPressure": "117",
+      "Temperature": "34.6",
+      "timestamp": "2019-04-18T15:20:20.000Z"
+    },
+    {
+      "id": 41,
+      "HeartBeat": "85",
+      "BloodSugar": "3.9",
+      "BloodPressure": "123",
+      "Temperature": "34.5",
+      "timestamp": "2019-04-19T16:30:55.000Z"
+    },
+    {
+      "id": 42,
+      "HeartBeat": "67",
+      "BloodSugar": "4.1",
+      "BloodPressure": "129",
+      "Temperature": "34.4",
+      "timestamp": "2019-04-20T17:40:20.000Z"
+    },
+    {
+      "id": 43,
+      "HeartBeat": "80",
+      "BloodSugar": "2.5",
+      "BloodPressure": "117",
+      "Temperature": "34.3",
+      "timestamp": "2019-04-21T18:50:55.000Z"
+    },
+    {
+      "id": 44,
+      "HeartBeat": "92",
+      "BloodSugar": "3.8",
+      "BloodPressure": "128",
+      "Temperature": "34.2",
+      "timestamp": "2019-04-22T19:00:20.000Z"
+    },
+    {
+      "id": 45,
+      "HeartBeat": "77",
+      "BloodSugar": "3.1",
+      "BloodPressure": "125",
+      "Temperature": "34.1",
+      "timestamp": "2019-04-23T20:10:55.000Z"
+    },
+    {
+      "id": 46,
+      "HeartBeat": "70",
+      "BloodSugar": "2.7",
+      "BloodPressure": "118",
+      "Temperature": "34.0",
+      "timestamp": "2019-04-24T21:20:20.000Z"
+    },
+    {
+      "id": 47,
+      "HeartBeat": "84",
+      "BloodSugar": "3.5",
+      "BloodPressure": "126",
+      "Temperature": "33.9",
+      "timestamp": "2019-04-25T22:30:55.000Z"
+    },
+    {
+      "id": 48,
+      "HeartBeat": "63",
+      "BloodSugar": "2.2",
+      "BloodPressure": "114",
+      "Temperature": "33.8",
+      "timestamp": "2019-04-26T23:40:20.000Z"
+    },
+    {
+      "id": 49,
+      "HeartBeat": "86",
+      "BloodSugar": "3.6",
+      "BloodPressure": "128",
+      "Temperature": "33.7",
+      "timestamp": "2019-04-27T00:50:55.000Z"
+    },
+    {
+      "id": 50,
+      "HeartBeat": "70",
+      "BloodSugar": "2.0",
+      "BloodPressure": "110",
+      "Temperature": "33.6",
+      "timestamp": "2019-04-28T01:00:20.000Z"
+    }
+  ]
+}

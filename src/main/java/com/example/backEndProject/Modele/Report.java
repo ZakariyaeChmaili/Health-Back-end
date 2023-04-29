@@ -24,9 +24,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
 
 /**
- *
  * @author hp
  */
 @Data
@@ -49,20 +49,27 @@ public class Report {
     private String bloodPressure;
     @Column(length = 7)
     private String temperature;
-    @ManyToOne
+    @ManyToOne()
     private Doctor doctor;
-    @ManyToOne
+    @ManyToOne()
     private Patient patient;
-    @OneToMany(mappedBy = "report")
+//    @OneToMany(mappedBy = "report")
+    @OneToMany
+    @JoinColumn(name = "id_report")
     private List<Traitement> listeTraitement = new ArrayList<>();
 
-    @JsonIgnore
-    public Doctor getDoctor() {
-        return doctor;
+
+    public Report(Long id_Repo) {
+        this.id_Repo = id_Repo;
     }
 
-    @JsonIgnore
-    public Patient getPatient() {
-        return patient;
-    }
+//    @JsonIgnore
+//    public Doctor getDoctor() {
+//        return doctor;
+//    }
+//
+//    @JsonIgnore
+//    public Patient getPatient() {
+//        return patient;
+//    }
 }

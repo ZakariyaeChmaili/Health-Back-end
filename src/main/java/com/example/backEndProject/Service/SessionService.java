@@ -7,7 +7,10 @@ package com.example.backEndProject.Service;
 import com.example.backEndProject.Modele.Session;
 import com.example.backEndProject.Repository.Sessionrepository;
 import java.util.List;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,9 +28,9 @@ public class SessionService implements ServiceInterface<Session>{
  
     
     
-    public String delete(Long id){
+    public ResponseEntity<Map<String,String>> delete(Long id){
     repo.deleteById(id);
-    return "Session destroy";
+    return ResponseEntity.ok(Map.of("msg","Session destroy"));
     }
     
     @Override

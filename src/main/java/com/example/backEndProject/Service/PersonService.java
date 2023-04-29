@@ -48,6 +48,7 @@ public class PersonService implements ServiceInterface<Personne>,UserDetailsServ
      p.setPrenom(per.getPrenom());
      p.setCni(per.getCni());
      p.setDatenaiss(per.getDatenaiss());
+     p.setTel(per.getTel());
      p.setVille(per.getVille());
      p.setNationality(per.getNationality());
      p.setSexe(per.getSexe());
@@ -61,17 +62,17 @@ public class PersonService implements ServiceInterface<Personne>,UserDetailsServ
     @Override
     public Personne getById(Long id) {
         System.out.println(id);
-        System.out.println(perso.findById(id).orElse(null));
+//        System.out.println(perso.findById(id).orElse(null));
         return perso.findById(id).orElse(null);
 
     }
 
     @Override
     public Personne loadUserByUsername(String cni) throws UsernameNotFoundException {
-        Personne p= this.perso.findPersonneByCni(cni);
+//        Personne p= this.perso.findPersonneByCni(cni);
         System.out.println(cni);
         System.out.println("start printing person from service");
-        System.out.println(p);
+//        System.out.println(p);
         return this.perso.findPersonneByCni(cni);
     }
 

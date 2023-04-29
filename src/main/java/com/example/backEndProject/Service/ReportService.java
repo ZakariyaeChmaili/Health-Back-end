@@ -4,6 +4,7 @@
  */
 package com.example.backEndProject.Service;
 
+import com.example.backEndProject.Modele.Patient;
 import com.example.backEndProject.Modele.Report;
 import com.example.backEndProject.Repository.Reportrepository;
 import java.util.List;
@@ -42,8 +43,13 @@ public class ReportService implements ServiceInterface<Report> {
     }
 
     public List<Report> getPatientReports(Long id){
-//    return report.findByPatient(id);
-//       System.out.println(report.findByPatientId(id));
-       return report.findByPatientId(id);
+       Patient p = new Patient();
+       p.setId(id);
+    return report.findByPatient(p);
+    }
+
+
+    public List<Report> searchReport(String kword,long id){
+       return report.searchReportPatient(id,kword);
     }
 }

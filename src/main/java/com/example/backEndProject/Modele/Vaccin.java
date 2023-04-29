@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,11 +37,8 @@ public class Vaccin {
     @Column(length=200)
     private String observation;
     @ManyToOne
-    private Patient patient;
-    @ManyToOne
     private Doctor doctor;
-   
-     
+    @ManyToOne
+    private Patient patient;
 
-    
 }

@@ -17,21 +17,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- *
  * @author hp
  */
 @Data
 @NoArgsConstructor
 @Entity
-public class Patient extends Personne{
+public class Patient extends Personne {
 
-//    @Id
+    //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
 //    @Id
@@ -42,8 +42,12 @@ public class Patient extends Personne{
     @Column(length = 55)
     private String nommere;
     private float poids;
-    @OneToMany(mappedBy = "patient")
-    List<Report> listeRapport = new ArrayList();
-    @OneToMany(mappedBy = "patient")
-    List<Vaccin> listeVaccin = new ArrayList();
+    //    @OneToMany(mappedBy = "patient")
+//    @OneToMany
+//    @JoinColumn(name = "id_patient")
+//    List<Report> listeRapport = new ArrayList();
+    //    @OneToMany(mappedBy = "patient")
+//    @OneToMany
+//    @JoinColumn(name = "id_patient")
+//    List<Vaccin> listeVaccin = new ArrayList();
 }

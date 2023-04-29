@@ -6,6 +6,7 @@ package com.example.backEndProject.Modele;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,8 +31,13 @@ public class Traitement {
    private String period;
    @Column(length=40)
    private String dose;
-   @ManyToOne
-   private Report report;
+   @Column(name="id_report")
+   private Long report;
+//   @ManyToOne
+//   private Report report;
    
-   
+//   @JsonIgnore
+//   public Report getReport(){
+//       return report;
+//   }
 }

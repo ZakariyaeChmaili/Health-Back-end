@@ -31,7 +31,7 @@ public class Personne implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+     Long id;
     @Column(length = 70)
     private String cni;
     @Column(length = 70)
@@ -59,6 +59,9 @@ public class Personne implements UserDetails {
     private String role;
 
 
+    public Personne(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {

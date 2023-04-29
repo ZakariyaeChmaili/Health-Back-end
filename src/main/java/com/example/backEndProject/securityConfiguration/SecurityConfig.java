@@ -30,8 +30,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 public class SecurityConfig {
 
-//    @Autowired
-//    JwtFilter jwtFilter;
+    @Autowired
+    JwtFilter jwtFilter;
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -49,17 +49,17 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .anyRequest()
-                .permitAll();
-//                .antMatchers("/authentication/**")
-//                .permitAll()
-//
-//
 //                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-//                ;
+//                .permitAll();
+                .antMatchers("/authentication/**")
+                .permitAll()
+
+
+                .anyRequest()
+                .authenticated()
+                .and()
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                ;
         return http.build();
     }
 
@@ -67,7 +67,7 @@ public class SecurityConfig {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(List.of("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS","PUT","DELETE"));
         configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization", "Access-Control-Allow-Origin", "set-cookie"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

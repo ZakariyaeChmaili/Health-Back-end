@@ -4,6 +4,7 @@
  */
 package com.example.backEndProject.Repository;
 
+import com.example.backEndProject.Modele.Patient;
 import com.example.backEndProject.Modele.Report;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,10 +20,10 @@ import java.util.List;
 public interface Reportrepository extends JpaRepository<Report, Long>{
 
 
-    List<Report> findByPatient( long id);
-//    @Query("select r from Report r where r.patient.personne.id=:id")
-@Query("SELECT r FROM Report r WHERE r.patient.id = :patientId")
-List<Report> findByPatientId(@Param("patientId") Long patientId);
+    List<Report> findByPatient(Patient p);
+//    List<Report> findByTitreContainingAndId_Repo(String titre, Long id);
+    @Query("select r from Report r where r.patient.id=:id and r.titre like %:titre%")
+List<Report> searchReportPatient(@Param("id") Long patientId,@Param("titre") String titre);
 
 
 //    @Query("SELECT r FROM Report r JOIN r.patient p JOIN p.person WHERE p.id = :patientId")

@@ -26,7 +26,7 @@ public class VaccinController {
      private final VaccinService serv; 
      @PostMapping("/create")
     public Vaccin create(@RequestBody Vaccin vac){
-    return serv.creer(vac);
+         return serv.creer(vac);
     }
     
     @GetMapping("vaccinlist")
@@ -37,5 +37,15 @@ public class VaccinController {
     @GetMapping("vaccin/{id}")
     public Vaccin getVaccin(@PathVariable Long id){
     return serv.getById(id);
+    }
+
+    @GetMapping("patientVaccins/{id}")
+    public List<Vaccin> getPatientVaccins(@PathVariable Long id){
+    return serv.getPatientVaccins(id);
+    }
+
+    @GetMapping("search/{kword}/{id}")
+    public List<Vaccin> searchVaccin(@PathVariable("kword")String kword,@PathVariable("id")long id){
+         return serv.searchVaccin(kword,id);
     }
 }

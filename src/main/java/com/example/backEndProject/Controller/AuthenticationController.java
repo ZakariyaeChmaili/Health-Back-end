@@ -1,7 +1,9 @@
 package com.example.backEndProject.Controller;
 
 import com.example.backEndProject.Modele.Personne;
+import com.example.backEndProject.Service.DoctorService;
 import com.example.backEndProject.Service.JwtService;
+import com.example.backEndProject.Service.PatientService;
 import com.example.backEndProject.Service.PersonService;
 import com.example.backEndProject.dto.PersonneDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,10 @@ public class AuthenticationController {
     JwtService jwtService;
     @Autowired
     PersonService personService;
+    @Autowired
+    DoctorService doctorService;
+    @Autowired
+    PatientService patientService;
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody Personne p, HttpServletResponse response) {
@@ -45,11 +51,15 @@ public class AuthenticationController {
         cookie.setHttpOnly(true);
         response.addCookie(cookie);
         Personne personne = personService.loadUserByUsername(p.getCni());
-        PersonneDTO personneDTO = new PersonneDTO(personne);
-        System.out.println(personneDTO);
+//        PersonneDTO personneDTO = new PersonneDTO(personne);
+        if(personne.getRole().equals("doctor"))
+            personne = doctorService.getById(personne.getId());
+        else
+            personne = patientService.getById(personne.getId());
+        System.out.println(personne);
 //        return token;
 //        return ResponseEntity.ok(Map.of("token", token));
-        return ResponseEntity.ok(Map.of("token", token, "user", personneDTO));
+        return ResponseEntity.ok(Map.of("token", token, "user", personne));
 //        return ResponseEntity.ok(Map.of("user", personService.loadUserByUsername(p.getCni())));
     }
 
