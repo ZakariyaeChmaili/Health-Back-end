@@ -72,13 +72,7 @@ public class Personne implements UserDetails {
                 ", role='" + role + '\'' +
                 '}';
     }
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "doctor_person", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id"))
-//    private List<Doctor> doctors = new ArrayList<>();
 
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "patient_person", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
-//    private List<Patient> patients = new ArrayList<>();
 
 
     @Override

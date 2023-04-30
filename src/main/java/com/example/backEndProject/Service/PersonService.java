@@ -6,57 +6,63 @@ package com.example.backEndProject.Service;
 
 import com.example.backEndProject.Modele.Personne;
 import com.example.backEndProject.Repository.Personnerepository;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-
 /**
- *
  * @author hp
  */
 @Service
 //@AllArgsConstructor
-public class PersonService implements ServiceInterface<Personne>,UserDetailsService{
+public class PersonService implements ServiceInterface<Personne>, UserDetailsService {
 
- private final Personnerepository perso;
+    private final Personnerepository perso;
+
 
     public PersonService(Personnerepository perso) {
         this.perso = perso;
     }
 
+
     @Override
     public Personne creer(Personne per) {
-      return perso.save(per);
+
+
+        return perso.save(per);
     }
+
+
+
+
 
     @Override
     public List<Personne> lire() {
-       return perso.findAll();
+        return perso.findAll();
     }
 
     @Override
-    public Personne modifier(Long id,Personne per) {
+    public Personne modifier(Long id, Personne per) {
         return perso.findById(id)
-             .map(p->{
-     p.setNom(per.getNom());
-     p.setPrenom(per.getPrenom());
-     p.setCni(per.getCni());
-     p.setDatenaiss(per.getDatenaiss());
-     p.setTel(per.getTel());
-     p.setVille(per.getVille());
-     p.setNationality(per.getNationality());
-     p.setSexe(per.getSexe());
-     p.setSutuaFamil(per.getSutuaFamil());
-     p.setAddresse(per.getAddresse());
-     
-     return perso.save(p);
-     }).orElseThrow(()->new RuntimeException("Produit non trouver"));
+                .map(p -> {
+                    p.setNom(per.getNom());
+                    p.setPrenom(per.getPrenom());
+                    p.setCni(per.getCni());
+                    p.setDatenaiss(per.getDatenaiss());
+                    p.setTel(per.getTel());
+                    p.setVille(per.getVille());
+                    p.setNationality(per.getNationality());
+                    p.setSexe(per.getSexe());
+                    p.setSutuaFamil(per.getSutuaFamil());
+                    p.setAddresse(per.getAddresse());
+
+                    return perso.save(p);
+                }).orElseThrow(() -> new RuntimeException("Produit non trouver"));
     }
 
     @Override
@@ -76,7 +82,7 @@ public class PersonService implements ServiceInterface<Personne>,UserDetailsServ
         return this.perso.findPersonneByCni(cni);
     }
 
-    public Optional<Personne> findPersonneByCni(String cni){
+    public Optional<Personne> findPersonneByCni(String cni) {
         return perso.findPersonneByCni2(cni);
     }
 

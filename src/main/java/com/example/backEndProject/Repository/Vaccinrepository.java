@@ -25,6 +25,6 @@ public interface Vaccinrepository extends JpaRepository<Vaccin, Long>{
 //    @Query("select v from Vaccin v where v.patient.id=:id")
 //    List<Vaccin> getPatientVaccins(@Param("id") Long id);
 
-    @Query("select v from Vaccin v where v.id=:id and v.type like %:type%")
+    @Query("select v from Vaccin v where v.patient.id=:id and v.type like %:type%")
     List<Vaccin> searchPatientVaccin(@Param("type") String type,@Param("id") long id);
 }

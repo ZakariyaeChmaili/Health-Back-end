@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -27,11 +28,18 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  *
  * @author ADMIN
  */
+
+
+
 @Configuration
 public class SecurityConfig {
 
-    @Autowired
+
+
     JwtFilter jwtFilter;
+    SecurityConfig(@Lazy JwtFilter jwtFilter){
+        this.jwtFilter = jwtFilter;
+    }
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -51,7 +59,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
 //                .anyRequest()
 //                .permitAll();
-                .antMatchers("/authentication/**")
+                .antMatchers("/authentication/**","/patient/create")
                 .permitAll()
 
 

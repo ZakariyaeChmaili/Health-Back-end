@@ -31,10 +31,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-    @Autowired
     JwtService jwtService;
-    @Autowired
     PersonService personService;
+
+    JwtFilter(JwtService jwtService, PersonService personService){
+        this.jwtService = jwtService;
+        this.personService = personService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

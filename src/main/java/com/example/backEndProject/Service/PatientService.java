@@ -12,18 +12,25 @@ import java.util.List;
 import javax.persistence.EntityNotFoundException;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
  * @author hp
  */
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 public class PatientService implements ServiceInterface<Patient> {
     private final Patientrepository patientrepo;
+    private final PasswordEncoder passwordEncoder;
+    PatientService(Patientrepository patientrepo, PasswordEncoder passwordEncoder) {
+        this.patientrepo = patientrepo;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public Patient creer(Patient patient) {
+        patient.setPassword(passwordEncoder.encode(patient.getPassword()));
         return patientrepo.save(patient);
     }
 
