@@ -43,6 +43,7 @@ public class Report {
     private Date datecrea;
     @Column(length = 7)
     private String heartBeat;
+    private String description;
     @Column(length = 7)
     private String bloodSugar;
     @Column(length = 7)
